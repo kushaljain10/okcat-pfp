@@ -5,7 +5,7 @@ const traits = [
   "background",
   "body",
   "eyes",
-  "hand",
+  // "hand",
   "head",
   "mouth",
   "sticker",

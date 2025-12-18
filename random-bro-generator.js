@@ -6,7 +6,7 @@ async function generateBro(background, body, eyes, head, mouth, hand, sticker) {
     `./assets/body/${body}.png`,
     `./assets/head/${head}.png`,
     `./assets/eyes/${eyes}.png`,
-    `./assets/hand/${hand}.png`,
+    // `./assets/hand/${hand}.png`,
     `./assets/mouth/${mouth}.png`,
     `./assets/sticker/${sticker}.png`,
   ];
@@ -24,7 +24,9 @@ async function generateBro(background, body, eyes, head, mouth, hand, sticker) {
   await base
     .composite(layers)
     .png()
-    .toFile(`./random/${background} ${body} ${eyes} ${head} ${mouth} ${hand} ${sticker}.png`);
+    .toFile(
+      `./random/${background} ${body} ${eyes} ${head} ${mouth} ${sticker}.png`
+    );
 }
 
 const backgroundsList = [
@@ -73,15 +75,15 @@ const mouthsList = [
   "Mouse Tail",
   "Gold Grillz",
 ];
-const handsList = [
-  "Middle Finger",
-  "Paper Hand",
-  "Bag",
-  "Phone",
-  "Uno Reverse",
-  "Diamond Hand",
-  "Gun",
-];
+// const handsList = [
+//   "Middle Finger",
+//   "Paper Hand",
+//   "Bag",
+//   "Phone",
+//   "Uno Reverse",
+//   "Diamond Hand",
+//   "Gun",
+// ];
 const stickersList = [
   "None",
   "Band-aid",
@@ -98,15 +100,17 @@ const stickersList = [
 let frequency = {};
 (async () => {
   for (let i = 0; i < 600; i++) {
-    const background = backgroundsList[Math.floor(Math.random() * backgroundsList.length)];
+    const background =
+      backgroundsList[Math.floor(Math.random() * backgroundsList.length)];
     const body = bodiesList[Math.floor(Math.random() * bodiesList.length)];
     const eyes = eyesList[Math.floor(Math.random() * eyesList.length)];
     const head = headsList[Math.floor(Math.random() * headsList.length)];
     const mouth = mouthsList[Math.floor(Math.random() * mouthsList.length)];
-    const hand = handsList[Math.floor(Math.random() * handsList.length)];
-    const sticker = stickersList[Math.floor(Math.random() * stickersList.length)];
+    // const hand = handsList[Math.floor(Math.random() * handsList.length)];
+    const sticker =
+      stickersList[Math.floor(Math.random() * stickersList.length)];
 
-    await generateBro(background, body, eyes, head, mouth, hand, sticker);
+    await generateBro(background, body, eyes, head, mouth, sticker);
   }
 })();
 // if (frequency[face]) {
