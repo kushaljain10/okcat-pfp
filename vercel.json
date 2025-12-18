@@ -2,5 +2,11 @@
   "rewrites": [
     { "source": "/", "destination": "/public/index.html" },
     { "source": "/assets/(.*)", "destination": "/public/assets/$1" }
-  ]
+  ],
+  "functions": {
+    "api/generate.js": {
+      "includeFiles": "assets/**/*",
+      "maxDuration": 10
+    }
+  }
 }

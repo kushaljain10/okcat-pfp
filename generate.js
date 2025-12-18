@@ -1,16 +1,31 @@
 import sharp from "sharp";
+import path from "path";
+import { fileURLToPath } from "url";
 
 export async function generateBro(req, res) {
   try {
-    const inputPNGs = [
-      "./assets/background/" + req.query.background + ".png",
-      "./assets/body/" + req.query.body + ".png",
-      "./assets/eyes/" + req.query.eyes + ".png",
-      "./assets/head/" + req.query.head + ".png",
-      "./assets/mouth/" + req.query.mouth + ".png",
-      "./assets/hand/" + req.query.hand + ".png",
-      "./assets/sticker/" + req.query.sticker + ".png",
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    const projectRoot = path.join(__dirname, "..");
+    const assetsDir = path.join(projectRoot, "assets");
+
+    const toPath = (trait, value) => {
+      if (!value || value === "None") return null;
+      return path.join(assetsDir, trait, `${value}.png`);
+    };
+
+    const orderedTraits = [
+      ["background", req.query.background],
+      ["body", req.query.body],
+      ["eyes", req.query.eyes],
+      ["head", req.query.head],
+      ["mouth", req.query.mouth],
+      ["hand", req.query.hand],
+      ["sticker", req.query.sticker],
     ];
+
+    const inputPNGs = orderedTraits
+      .map(([trait, value]) => toPath(trait, value))
+      .filter(Boolean);
 
     const layers = inputPNGs.map((p) => ({ input: p }));
 
