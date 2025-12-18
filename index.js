@@ -1,4 +1,3 @@
-const fs = import('fs');
 import {generateBro} from './generate.js';
 import express from 'express';
 import cors from 'cors';

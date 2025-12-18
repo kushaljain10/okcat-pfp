@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bitcoin Bro Maker</title>
+    <title>ok pfp maker</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
@@ -12,10 +12,10 @@
 
   <body class="bg-black">
     <div class="container mx-auto p-4">
-      <h1 class="text-3xl font-bold mb-4">Bitcoin Bro Maker</h1>
+      <h1 class="text-3xl font-bold mb-4">ok pfp maker</h1>
 
-      <div class="grid grid-cols-6">
-        <div class="col-span-3">
+      <div class="grid grid-cols-2 gap-8 items-start">
+        <div class="max-w-xl">
           <form id="bro-form" class="bg-white p-4 rounded shadow-md mr-4">
             <div class="flex flex-wrap mb-4">
               <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -47,31 +47,17 @@
 
             <div class="flex flex-wrap mb-4">
               <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block mb-2 font-bold" for="dress">Dress:</label>
+                <label class="block mb-2 font-bold" for="eyes">Eyes:</label>
                 <select
                   onchange="generateBro()"
-                  id="dress"
-                  name="dress"
+                  id="eyes"
+                  name="eyes"
                   class="block w-full p-2 border border-gray-300 rounded"
                 ></select>
-                <label for="dress-fixed">Fixed?</label>
-                <input id="dress-fixed" type="checkbox" />
+                <label for="eyes-fixed">Fixed?</label>
+                <input id="eyes-fixed" type="checkbox" />
               </div>
 
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block mb-2 font-bold" for="face">Face:</label>
-                <select
-                  onchange="generateBro()"
-                  id="face"
-                  name="face"
-                  class="block w-full p-2 border border-gray-300 rounded"
-                ></select>
-                <label for="face-fixed">Fixed?</label>
-                <input id="face-fixed" type="checkbox" />
-              </div>
-            </div>
-
-            <div class="flex flex-wrap mb-4">
               <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label class="block mb-2 font-bold" for="head">Head:</label>
                 <select
@@ -83,66 +69,70 @@
                 <label for="head-fixed">Fixed?</label>
                 <input id="head-fixed" type="checkbox" />
               </div>
+            </div>
 
+            <div class="flex flex-wrap mb-4">
               <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block mb-2 font-bold" for="eyes">Eyes:</label>
+                <label class="block mb-2 font-bold" for="head">Mouth:</label>
                 <select
                   onchange="generateBro()"
-                  id="eyes"
-                  name="eyes"
+                  id="mouth"
+                  name="mouth"
                   class="block w-full p-2 border border-gray-300 rounded"
                 ></select>
-                <label for="eyes-fixed">Fixed?</label>
-                <input id="eyes-fixed" type="checkbox" />
+                <label for="mouth-fixed">Fixed?</label>
+                <input id="mouth-fixed" type="checkbox" />
+              </div>
+
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block mb-2 font-bold" for="eyes">Hand:</label>
+                <select
+                  onchange="generateBro()"
+                  id="hand"
+                  name="hand"
+                  class="block w-full p-2 border border-gray-300 rounded"
+                ></select>
+                <label for="hand-fixed">Fixed?</label>
+                <input id="hand-fixed" type="checkbox" />
               </div>
             </div>
 
             <div class="flex flex-wrap mb-4">
               <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label class="block mb-2 font-bold" for="eyewear"
-                  >Eyewear:</label
+                  >Sticker:</label
                 >
                 <select
                   onchange="generateBro()"
-                  id="eyewear"
-                  name="eyewear"
+                  id="sticker"
+                  name="sticker"
                   class="block w-full p-2 border border-gray-300 rounded"
                 ></select>
-                <label for="eyewear-fixed">Fixed?</label>
-                <input id="eyewear-fixed" type="checkbox" />
-              </div>
-
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block mb-2 font-bold" for="beard">Beard:</label>
-                <select
-                  onchange="generateBro()"
-                  id="beard"
-                  name="beard"
-                  class="block w-full p-2 border border-gray-300 rounded"
-                ></select>
-                <label for="beard-fixed">Fixed?</label>
-                <input id="beard-fixed" type="checkbox" />
+                <label for="sticker-fixed">Fixed?</label>
+                <input id="sticker-fixed" type="checkbox" />
               </div>
             </div>
-            <button
-              id="generate-btn"
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-              onclick="generateBro()"
-            >
-              Generate Bro
-            </button>
-            <button
-              id="random-btn"
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-              onclick="randomBro()"
-            >
-              Randomise
-            </button>
+            <div class="m-4">
+              <button
+                id="generate-btn"
+                class="mr-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button"
+                onclick="generateBro()"
+              >
+                Generate Bro
+              </button>
+              <button
+                id="random-btn"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button"
+                onclick="randomBro()"
+              >
+                Randomise
+              </button>
+            </div>
           </form>
         </div>
-        <div class="col-span-3" style="max-width: 500px">
+        <div class="max-w-xl">
           <div id="result" class="mb-4"></div>
           <div>
             <a
@@ -167,13 +157,12 @@
       // Assuming you have an array of folder names
       const traitNames = [
         "background",
-        "beard",
-        "dress",
-        "eyes",
-        "eyewear",
-        "face",
-        "head",
         "body",
+        "eyes",
+        "head",
+        "hand",
+        "mouth",
+        "sticker",
       ];
 
       // Function to read a CSV file and return its contents as an array
@@ -199,19 +188,20 @@
           .options[0].setAttribute("selected", "");
       }
 
-      window.onload = traitNames.forEach((folderName) => {
-        // Replace 'csvFiles/folderName.csv' with the actual file path
-        fetch(`assets/${folderName}/list.csv`)
-          .then((response) => response.text())
-          .then((csvData) => {
-            const options = readCSV(csvData);
-            populateSelect(folderName, options);
-          })
-          .catch((error) => {
-            console.error(`Error loading CSV file for ${folderName}:`, error);
-          });
-        generateBro();
-      });
+      window.onload = () => {
+        const loads = traitNames.map((folderName) =>
+          fetch(`assets/${folderName}/list.csv`)
+            .then((response) => response.text())
+            .then((csvData) => {
+              const options = readCSV(csvData);
+              populateSelect(folderName, options);
+            })
+            .catch((error) => {
+              console.error(`Error loading CSV file for ${folderName}:`, error);
+            })
+        );
+        Promise.all(loads).then(() => generateBro());
+      };
 
       function randomBro() {
         traitNames.forEach(function (trait) {
