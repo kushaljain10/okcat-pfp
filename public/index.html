@@ -133,7 +133,7 @@
           </form>
         </div>
         <div class="max-w-xl">
-          <div id="result" class="mb-4"></div>
+          <div id="result" class="mb-4 preview-box"></div>
           <div>
             <a
               id="download-btn"
@@ -241,7 +241,7 @@
             // Render PNG data URL
             document.getElementById(
               "result"
-            ).innerHTML = `<img src="${data.bro}" alt="bro" style="width: 500px; height: 500px;"/>`;
+            ).innerHTML = `<img src="${data.bro}" alt="bro"/>`;
           })
           .catch((error) => {
             // Handle any errors that occurred during the request

@@ -16,4 +16,21 @@ body {
   font-weight: bold;
   color: #333;
   margin-top: 20px;
-}  
+}
+
+.preview-box {
+  width: 100%;
+  max-width: 512px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+}
+
+.preview-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
