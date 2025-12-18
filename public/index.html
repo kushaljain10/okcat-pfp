@@ -233,7 +233,7 @@
         const params = new URLSearchParams(formData).toString();
 
         // Adjust the API endpoint URL accordingly
-        const apiUrl = "http://localhost:3000/generate?" + params;
+        const apiUrl = "/api/generate?" + params;
 
         fetch(apiUrl)
           .then((response) => response.json())
