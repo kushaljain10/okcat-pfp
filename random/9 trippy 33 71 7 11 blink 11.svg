@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><g id="layer1"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="512" height="512" fill="#186450"/>
+<path d="M134 178H167V242H146L134 178Z" fill="#E24713"/>
+<path d="M378 178H345V242H366L378 178Z" fill="#E24713"/>
+<rect x="207" y="346" width="98" height="54" fill="#E24713"/>
+<path d="M64 400H448L480 512H32L64 400Z" fill="#F15824"/>
+<rect x="166" y="106" width="180" height="240" fill="#F15824"/>
+</svg>
+</g><g id="layer2"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_34_133" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="32" y="106" width="448" height="406">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M207 346H166V242H146L134 178H166L166 106L346 106V178H378L366 242H346V346L305 346V400H448L480 512H32L64 400H207V346Z" fill="#F15824"/>
+</mask>
+<g mask="url(#mask0_34_133)">
+<circle cx="256" cy="-40" r="950" fill="#F15824">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="900" fill="#C2FD52">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="850" fill="#AD00FF">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="800" fill="#00A8FF">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="750" fill="#C2FD52">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="700" fill="#D22D27">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="650" fill="#FFB74A">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="600" fill="#F15824">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="550" fill="#C2FD52">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="500" fill="#FF00B1">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="450" fill="#AD00FF">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="400" fill="#00A8FF">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="350" fill="#C2FD52">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="300" fill="#D22D27">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="250" fill="#FFB74A">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+<circle cx="256" cy="-40" r="200" fill="#F15824">
+<animate attributeName="cy" values="-40;-400;-40" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite"/>
+</circle>
+</g>
+<path d="M256 218L266 258H246" stroke="#121212" stroke-width="6"/>
+</svg>
+</g><g id="layer3"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="180" height="48" transform="matrix(1 0 0 -1 166 154)" fill="#D22D27"/>
+<rect x="317.2" y="114" width="4.26666" height="31.9999" fill="#FF9490"/>
+<rect x="321.466" y="127.867" width="11.7333" height="4.26666" fill="#FF9490"/>
+<rect x="314" y="137.467" width="19.2" height="4.26666" fill="#FF9490"/>
+<rect x="314" y="118.267" width="19.2" height="4.26666" fill="#FF9490"/>
+<rect x="333.2" y="122.533" width="4.26666" height="5.33332" fill="#FF9490"/>
+<rect x="323.806" y="114" width="4.26666" height="4.26666" fill="#FF9490"/>
+<rect x="323.866" y="141.733" width="4.26666" height="4.26666" fill="#FF9490"/>
+<rect x="333.2" y="132.133" width="4.26666" height="5.33332" fill="#FF9490"/>
+<rect width="180" height="12" transform="matrix(1 0 0 -1 166 166)" fill="#FF9490"/>
+<path d="M135.5 159.5L166 106H268.5L180 187L135.5 159.5Z" fill="#D22D27"/>
+</svg>
+</g><g id="layer4"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_434_10364)">
+<rect x="166" y="346" width="180" height="54" fill="#ECECEC"/>
+<rect x="166" y="346" width="180" height="16" fill="white"/>
+<path d="M64 400H448L480 512H32L64 400Z" fill="white"/>
+<path d="M236 428L243.629 452H247.857L240.292 428H236ZM272.078 428L264.068 452H268.36L276.307 428H272.079H272.078ZM249.653 440.652H255.853L249.113 449.139V452H262.591V447.899H256.018L262.814 439.412V436.551H249.653V440.652Z" fill="#ECECEC"/>
+<rect x="86" y="400" width="54" height="20" fill="#ECECEC"/>
+<rect x="372" y="400" width="54" height="20" fill="#ECECEC"/>
+<circle cx="256" cy="528" r="39" fill="#ECECEC"/>
+<path d="M137 418L161 477M161 477H351M161 477L137 516.5M351 477L375 418M351 477L375 516.5" stroke="#ECECEC" stroke-width="6"/>
+<path d="M83 400V512" stroke="#ECECEC" stroke-width="6"/>
+<path d="M429 400V512" stroke="#ECECEC" stroke-width="6"/>
+</g>
+<defs>
+<clipPath id="clip0_434_10364">
+<rect width="512" height="512" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g id="layer5"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="204" y="286" width="12" height="60" fill="#121212"/>
+<rect x="296" y="286" width="12" height="60" fill="#121212"/>
+<rect x="244" y="322" width="24" height="12" fill="#121212"/>
+<path d="M204 334H308V346L256 370L204 346V334Z" fill="#121212"/>
+</svg>
+</g><g id="layer6"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M292 309H220L292 283V309Z" fill="white"/>
+</svg>
+</g><g id="layer7"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="212" y="194" width="20" height="20" rx="10" fill="#121212">
+    <animate attributeName="rx" values="10;10;1;10;10;1;10;10;" keyTimes="0;0.275;0.3;0.325;0.725;0.75;0.775;1" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="height" values="20;20;2;20;20;2;20;20" keyTimes="0;0.275;0.3;0.325;0.725;0.75;0.775;1" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="y" values="194;194;203;194;194;203;194;194" keyTimes="0;0.275;0.3;0.325;0.725;0.75;0.775;1" dur="4s" repeatCount="indefinite" />
+  </rect>
+  <rect x="280" y="194" width="20" height="20" rx="10" fill="#121212">
+    <animate attributeName="rx" values="10;10;1;10;10;1;10;10" keyTimes="0;0.275;0.3;0.325;0.725;0.75;0.775;1" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="height" values="20;20;2;20;20;2;20;20" keyTimes="0;0.275;0.3;0.325;0.725;0.75;0.775;1" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="y" values="194;194;203;194;194;203;194;194" keyTimes="0;0.275;0.3;0.325;0.725;0.75;0.775;1" dur="4s" repeatCount="indefinite" />
+  </rect>
+  <path d="M206 162H238" stroke="#121212" stroke-width="6"/>
+  <path d="M274 162H306" stroke="#121212" stroke-width="6"/>
+</svg>
+</g><g id="layer8"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M166 172H246V236L166 278V172Z" fill="#2D2D2D"/>
+<path d="M194 204C194 192.954 202.954 184 214 184C225.046 184 234 192.954 234 204C234 215.046 225.046 224 214 224C202.954 224 194 215.046 194 204Z" fill="#D22D27"/>
+<path d="M204 204C204 198.477 208.477 194 214 194C219.523 194 224 198.477 224 204C224 209.523 219.523 214 214 214C208.477 214 204 209.523 204 204Z" fill="#7B0000"/>
+<path d="M182 188C182 185.791 183.791 184 186 184C188.209 184 190 185.791 190 188C190 190.209 188.209 192 186 192C183.791 192 182 190.209 182 188Z" fill="#D22D27"/>
+<path d="M182 204C182 201.791 183.791 200 186 200C188.209 200 190 201.791 190 204C190 206.209 188.209 208 186 208C183.791 208 182 206.209 182 204Z" fill="#D22D27"/>
+</svg>
+</g></svg>

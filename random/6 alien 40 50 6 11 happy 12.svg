@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><g id="layer1"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="512" height="512" fill="#007089"/>
+<path d="M134 178H167V242H146L134 178Z" fill="#E24713"/>
+<path d="M378 178H345V242H366L378 178Z" fill="#E24713"/>
+<rect x="207" y="346" width="98" height="54" fill="#E24713"/>
+<path d="M64 400H448L480 512H32L64 400Z" fill="#F15824"/>
+<rect x="166" y="106" width="180" height="240" fill="#F15824"/>
+</svg>
+</g><g id="layer2"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M134 178H166V242H146L134 178Z" fill="#36CF00"/>
+<path d="M378 178H346V242H366L378 178Z" fill="#36CF00"/>
+<path d="M64 400H448L480 512H32L64 400Z" fill="#3BE200"/>
+<rect x="207" y="346" width="98" height="54" fill="#36CF00"/>
+<rect x="166" y="106" width="180" height="240" fill="#3BE200"/>
+</svg>
+</g><g id="layer3"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M134 178H166V242H146L134 178Z" fill="#121212"/>
+<path d="M378 178H346V242H366L378 178Z" fill="#121212"/>
+<rect x="166" y="106" width="180" height="56" fill="#121212"/>
+<rect x="166" y="242" width="180" height="104" fill="#121212"/>
+</svg>
+</g><g id="layer4"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M64 400H160C160 400 160 472 256 472C352 472 352 400 352 400H448L480 512H32L64 400Z" fill="#77492D"/>
+<path d="M207 354C207 354 143.121 348.092 132 376.5C126.01 391.8 135 400.001 135 400.001C135 400.001 126.999 407.001 127 419.001C127.001 431.001 135 438.501 135 438.501C135 438.501 127 443.501 127 457.501C127 471.501 135 476.501 135 476.501C135 476.501 127 481.751 127 493.501C127 505.25 135 512 135 512H207V354Z" fill="#8B634A"/>
+<path d="M305 354C305 354 368.879 348.092 380 376.5C385.99 391.8 377 400.001 377 400.001C377 400.001 385.001 407.001 385 419.001C384.999 431.001 377 438.501 377 438.501C377 438.501 385 443.501 385 457.501C385 471.501 377 476.501 377 476.501C377 476.501 385 481.751 385 493.501C385 505.25 377 512 377 512H305V354Z" fill="#8B634A"/>
+<rect x="207" y="400" width="98" height="112" fill="#FFB74A"/>
+</svg>
+</g><g id="layer5"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="207" y="346" width="98" height="54" fill="#E24713"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M346 266H166V400H256.5H346V266ZM297 281H215V323H297V281Z" fill="#121212"/>
+</svg>
+</g><g id="layer6"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M292 309H220L292 283V309Z" fill="white"/>
+</svg>
+</g><g id="layer7"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M206 162H238" stroke="#121212" stroke-width="6"/>
+<path d="M206 202C206 202 212 194 222 194C232 194 238 202 238 202" stroke="#121212" stroke-width="6"/>
+<path d="M274 202C274 202 280 194 290 194C300 194 306 202 306 202" stroke="#121212" stroke-width="6"/>
+<path d="M274 162H306" stroke="#121212" stroke-width="6"/>
+</svg>
+</g><g id="layer8"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M189.583 182.714L209.163 174L220.041 182.893L230.919 174L250.5 182.714V190V208.857L220.041 235L189.583 208.857V182.714Z" fill="#D22D27" fill-opacity="0.6"/>
+<path d="M189.583 182.714V208.857L220.041 235L250.5 208.857V190M189.583 182.714L209.163 174L220.041 182.893L230.919 174L250.5 182.714V190M189.583 182.714L163 175.5M250.5 190H262" stroke="#D22D27" stroke-width="6"/>
+<path d="M322.417 183.214L302.837 174.5L291.959 183.393L281.081 174.5L261.5 183.214V209.357L291.959 235.5L322.417 209.357V183.214Z" fill="#D22D27" fill-opacity="0.6"/>
+<path d="M322.417 183.214V209.357L291.959 235.5L261.5 209.357V183.214L281.081 174.5L291.959 183.393L302.837 174.5L322.417 183.214ZM322.417 183.214L349 176" stroke="#D22D27" stroke-width="6"/>
+</svg>
+</g></svg>

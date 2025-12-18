@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><g id="layer1"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="512" height="512" fill="#0047FF"/>
+<path d="M134 178H167V242H146L134 178Z" fill="#E24713"/>
+<path d="M378 178H345V242H366L378 178Z" fill="#E24713"/>
+<rect x="207" y="346" width="98" height="54" fill="#E24713"/>
+<path d="M64 400H448L480 512H32L64 400Z" fill="#F15824"/>
+<rect x="166" y="106" width="180" height="240" fill="#F15824"/>
+</svg>
+</g><g id="layer2"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M134 178H166V242H146L134 178Z" fill="#36CF00"/>
+<path d="M378 178H346V242H366L378 178Z" fill="#36CF00"/>
+<path d="M64 400H448L480 512H32L64 400Z" fill="#3BE200"/>
+<rect x="207" y="346" width="98" height="54" fill="#36CF00"/>
+<rect x="166" y="106" width="180" height="240" fill="#3BE200"/>
+</svg>
+</g><g id="layer3"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="115" y="155" width="51" height="95" fill="white"/>
+<rect x="346" y="155" width="51" height="95" fill="white"/>
+<path d="M166 106V155H138V77H374V155H346V106H166Z" fill="white"/>
+</svg>
+</g><g id="layer4"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M64 400H188C188 400 190 452 256 452C322 452 324 400 324 400H448L480 512H32L64 400Z" fill="#121212"/>
+<path d="M256 452C190 452 188 400 188 400H166.5C166.5 400 172.5 473.5 256 473.5C339.5 473.5 345.5 400 345.5 400H324C324 400 322 452 256 452Z" fill="white"/>
+</svg>
+</g><g id="layer5"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="236" y="322" width="40" height="24" fill="#121212"/>
+<path d="M166 286H207V346H166V286Z" fill="#121212"/>
+<path d="M346 286H305V346H346V286Z" fill="#121212"/>
+</svg>
+</g><g id="layer6"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M216 284H296L292 301L288 317H224L220 301L216 284Z" fill="white"/>
+<path d="M220 301L224 317H288L292 301M220 301L216 284H296L292 301M220 301H292" stroke="#121212" stroke-width="6"/>
+<path d="M311 301L311 275.5M311 301L311 325M311 301H192.5M180 301H192.5M192.5 301L201 285M192.5 301L201 316" stroke="#42B16C" stroke-width="6"/>
+<rect x="362" y="281" width="40" height="48" transform="rotate(90 362 281)" fill="#D22D27"/>
+<path d="M362 309V321H314V293L362 309Z" fill="#7B0000"/>
+</svg>
+</g><g id="layer7"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="212" y="194" width="20" height="20" rx="10" fill="#121212">
+        <animate attributeName="x" values="206;218;218;206;206" keyTimes="0;0.05;0.5;0.55;1" dur="4s" repeatCount="indefinite" />
+    </rect>
+    <rect x="280" y="194" width="20" height="20" rx="10" fill="#121212">
+        <animate attributeName="x" values="274;286;286;274;274" keyTimes="0;0.05;0.5;0.55;1" dur="4s" repeatCount="indefinite" />
+    </rect>
+    <path d="M206 197H238" stroke="#121212" stroke-width="6"/>
+    <path d="M274 197H306" stroke="#121212" stroke-width="6"/>
+</svg>
+</g><g id="layer8"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M166 172H246V236L166 278V172Z" fill="#2D2D2D"/>
+<path d="M194 204C194 192.954 202.954 184 214 184C225.046 184 234 192.954 234 204C234 215.046 225.046 224 214 224C202.954 224 194 215.046 194 204Z" fill="#D22D27"/>
+<path d="M204 204C204 198.477 208.477 194 214 194C219.523 194 224 198.477 224 204C224 209.523 219.523 214 214 214C208.477 214 204 209.523 204 204Z" fill="#7B0000"/>
+<path d="M182 188C182 185.791 183.791 184 186 184C188.209 184 190 185.791 190 188C190 190.209 188.209 192 186 192C183.791 192 182 190.209 182 188Z" fill="#D22D27"/>
+<path d="M182 204C182 201.791 183.791 200 186 200C188.209 200 190 201.791 190 204C190 206.209 188.209 208 186 208C183.791 208 182 206.209 182 204Z" fill="#D22D27"/>
+</svg>
+</g></svg>
