@@ -214,26 +214,69 @@
         }
       });
 
-      function generateBro() {
+      // Simple in-memory image cache to avoid repeated loads
+      const imageCache = new Map();
+
+      function loadImage(src) {
+        if (imageCache.has(src)) {
+          return Promise.resolve(imageCache.get(src));
+        }
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.crossOrigin = "anonymous"; // allow canvas export if served via CDN/same-origin
+          img.onload = () => {
+            imageCache.set(src, img);
+            resolve(img);
+          };
+          img.onerror = (err) => reject(err);
+          img.src = src;
+        });
+      }
+
+      async function composeOnCanvas(selected) {
+        const canvas = document.createElement("canvas");
+        canvas.width = 1080;
+        canvas.height = 1080;
+        const ctx = canvas.getContext("2d");
+
+        // Draw each selected layer in order; skip explicit "None"
+        for (const trait of traitNames) {
+          const value = selected[trait];
+          if (!value || value === "None") continue;
+          const src = `assets/${trait}/${value}.png`;
+          const img = await loadImage(src);
+          ctx.drawImage(img, 0, 0, 1080, 1080);
+        }
+        return canvas.toDataURL("image/png");
+      }
+
+      async function generateBro() {
         document.getElementById("download-btn").style.display = "block";
+
         const formData = new FormData(document.getElementById("bro-form"));
-        const params = new URLSearchParams(formData).toString();
+        const selected = {};
+        traitNames.forEach((t) => (selected[t] = formData.get(t)));
 
-        // Adjust the API endpoint URL accordingly
-        const apiUrl = "/api/generate?" + params;
-
-        fetch(apiUrl)
-          .then((response) => response.json())
-          .then((data) => {
-            // Render PNG data URL
-            document.getElementById(
-              "result"
-            ).innerHTML = `<img src="${data.bro}" alt="bro"/>`;
-          })
-          .catch((error) => {
-            // Handle any errors that occurred during the request
-            console.error(error);
-          });
+        try {
+          const dataUrl = await composeOnCanvas(selected);
+          document.getElementById(
+            "result"
+          ).innerHTML = `<img src="${dataUrl}" alt="bro"/>`;
+        } catch (e) {
+          console.warn("Canvas generation failed, falling back to server:", e);
+          const params = new URLSearchParams(formData).toString();
+          const apiUrl = "/api/generate?" + params;
+          fetch(apiUrl)
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById(
+                "result"
+              ).innerHTML = `<img src="${data.bro}" alt="bro"/>`;
+            })
+            .catch((error) => {
+              console.error("Server fallback failed:", error);
+            });
+        }
       }
     </script>
   </body>
