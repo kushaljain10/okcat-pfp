@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ok pfp maker</title>
     <link rel="icon" type="image/png" href="catnobg.png" />
+    <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
@@ -253,6 +254,8 @@
 
       async function generateBro() {
         document.getElementById("download-btn").style.display = "block";
+        const resultEl = document.getElementById("result");
+        resultEl.innerHTML = '<div class="preview-center"><div class="spinner"></div></div>';
 
         const formData = new FormData(document.getElementById("bro-form"));
         const selected = {};
@@ -260,9 +263,7 @@
 
         try {
           const dataUrl = await composeOnCanvas(selected);
-          document.getElementById(
-            "result"
-          ).innerHTML = `<img src="${dataUrl}" alt="bro"/>`;
+          resultEl.innerHTML = `<img src="${dataUrl}" alt="bro"/>`;
         } catch (e) {
           console.warn("Canvas generation failed, falling back to server:", e);
           const params = new URLSearchParams(formData).toString();
@@ -270,9 +271,7 @@
           fetch(apiUrl)
             .then((response) => response.json())
             .then((data) => {
-              document.getElementById(
-                "result"
-              ).innerHTML = `<img src="${data.bro}" alt="bro"/>`;
+              resultEl.innerHTML = `<img src="${data.bro}" alt="bro"/>`;
             })
             .catch((error) => {
               console.error("Server fallback failed:", error);
