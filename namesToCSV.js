@@ -1,15 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const traits = [
-  "background",
-  "body",
-  "eyes",
-  // "hand",
-  "head",
-  "mouth",
-  "sticker",
-];
+const traits = ["background", "body", "eyes", "head", "mouth", "sticker"];
 
 traits.forEach(function (current) {
   let folderPath = "./assets/" + current; // Source assets path
