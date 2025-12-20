@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ok pfp maker</title>
     <link rel="icon" type="image/png" href="catnobg.png" />
-    <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
@@ -219,20 +218,42 @@
       // Simple in-memory image cache to avoid repeated loads
       const imageCache = new Map();
 
-      function loadImage(src) {
+      // Load image using ImageBitmap when possible (faster decode, off-main-thread)
+      async function loadImage(src) {
         if (imageCache.has(src)) {
-          return Promise.resolve(imageCache.get(src));
+          return imageCache.get(src);
         }
-        return new Promise((resolve, reject) => {
-          const img = new Image();
-          img.crossOrigin = "anonymous"; // allow canvas export if served via CDN/same-origin
-          img.onload = () => {
-            imageCache.set(src, img);
-            resolve(img);
-          };
-          img.onerror = (err) => reject(err);
-          img.src = src;
-        });
+        try {
+          const resp = await fetch(src, { mode: "cors" });
+          const blob = await resp.blob();
+          if ("createImageBitmap" in window) {
+            const ib = await createImageBitmap(blob);
+            imageCache.set(src, ib);
+            return ib;
+          }
+          // Fallback to HTMLImageElement if ImageBitmap is unavailable
+          const img = await new Promise((resolve, reject) => {
+            const el = new Image();
+            el.crossOrigin = "anonymous";
+            el.onload = () => resolve(el);
+            el.onerror = (err) => reject(err);
+            el.src = URL.createObjectURL(blob);
+          });
+          imageCache.set(src, img);
+          return img;
+        } catch (e) {
+          // Final fallback: direct <img src> path
+          return new Promise((resolve, reject) => {
+            const el = new Image();
+            el.crossOrigin = "anonymous";
+            el.onload = () => {
+              imageCache.set(src, el);
+              resolve(el);
+            };
+            el.onerror = (err) => reject(err);
+            el.src = src;
+          });
+        }
       }
 
       async function composeOnCanvas(selected) {
@@ -241,12 +262,27 @@
         canvas.height = 1080;
         const ctx = canvas.getContext("2d");
 
-        // Draw each selected layer in order; skip explicit "None"
+        // Load all needed layers concurrently
+        const pending = [];
+        const sources = {};
         for (const trait of traitNames) {
           const value = selected[trait];
           if (!value || value === "None") continue;
           const src = `assets/${trait}/${value}.png`;
-          const img = await loadImage(src);
+          sources[trait] = src;
+          pending.push(
+            loadImage(src).then((img) => ({ trait, img }))
+          );
+        }
+        const loaded = await Promise.all(pending);
+        const byTrait = Object.fromEntries(
+          loaded.map((o) => [o.trait, o.img])
+        );
+
+        // Draw in trait order for correct stacking
+        for (const trait of traitNames) {
+          const img = byTrait[trait];
+          if (!img) continue;
           ctx.drawImage(img, 0, 0, 1080, 1080);
         }
         return canvas.toDataURL("image/png");
@@ -254,8 +290,6 @@
 
       async function generateBro() {
         document.getElementById("download-btn").style.display = "block";
-        const resultEl = document.getElementById("result");
-        resultEl.innerHTML = '<div class="preview-center"><div class="spinner"></div></div>';
 
         const formData = new FormData(document.getElementById("bro-form"));
         const selected = {};
@@ -263,7 +297,9 @@
 
         try {
           const dataUrl = await composeOnCanvas(selected);
-          resultEl.innerHTML = `<img src="${dataUrl}" alt="bro"/>`;
+          document.getElementById(
+            "result"
+          ).innerHTML = `<img src="${dataUrl}" alt="bro"/>`;
         } catch (e) {
           console.warn("Canvas generation failed, falling back to server:", e);
           const params = new URLSearchParams(formData).toString();
@@ -271,7 +307,9 @@
           fetch(apiUrl)
             .then((response) => response.json())
             .then((data) => {
-              resultEl.innerHTML = `<img src="${data.bro}" alt="bro"/>`;
+              document.getElementById(
+                "result"
+              ).innerHTML = `<img src="${data.bro}" alt="bro"/>`;
             })
             .catch((error) => {
               console.error("Server fallback failed:", error);
