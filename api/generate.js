@@ -1,5 +1,19 @@
 import sharp from "sharp";
 import path from "path";
+import fs from "fs/promises";
+
+// In-memory caches to speed up warm invocations
+const fileCache = new Map(); // path -> Buffer
+const resultCache = new Map(); // key -> dataUrl
+const MAX_RESULT_CACHE = 200;
+
+async function loadBuffer(p) {
+  const cached = fileCache.get(p);
+  if (cached) return cached;
+  const buf = await fs.readFile(p);
+  fileCache.set(p, buf);
+  return buf;
+}
 
 export default async function handler(req, res) {
   try {
@@ -17,7 +31,6 @@ export default async function handler(req, res) {
       ["eyes", req.query.eyes],
       ["head", req.query.head],
       ["mouth", req.query.mouth],
-      // ["hand", req.query.hand],
       ["sticker", req.query.sticker],
     ];
 
@@ -25,7 +38,14 @@ export default async function handler(req, res) {
       .map(([trait, value]) => toPath(trait, value))
       .filter(Boolean);
 
-    const layers = inputPNGs.map((p) => ({ input: p }));
+    const resultKey = orderedTraits.map(([t, v]) => `${t}:${v || ""}`).join("|");
+    const cachedResult = resultCache.get(resultKey);
+    if (cachedResult) {
+      return res.status(200).json({ bro: cachedResult });
+    }
+
+    const buffers = await Promise.all(inputPNGs.map((p) => loadBuffer(p)));
+    const layers = buffers.map((b) => ({ input: b }));
 
     const base = sharp({
       create: {
@@ -36,8 +56,18 @@ export default async function handler(req, res) {
       },
     });
 
-    const buffer = await base.composite(layers).png().toBuffer();
+    const buffer = await base
+      .composite(layers)
+      .png({ compressionLevel: 1, effort: 1 })
+      .toBuffer();
     const dataUrl = "data:image/png;base64," + buffer.toString("base64");
+
+    // Simple LRU: trim when too large
+    resultCache.set(resultKey, dataUrl);
+    if (resultCache.size > MAX_RESULT_CACHE) {
+      const firstKey = resultCache.keys().next().value;
+      resultCache.delete(firstKey);
+    }
 
     res.status(200).json({ bro: dataUrl });
   } catch (err) {
