@@ -1,12 +1,11 @@
 import sharp from "sharp";
 
-async function generateBro(background, body, eyes, head, mouth, hand, sticker) {
+async function generateBro(background, body, eyes, head, mouth, sticker) {
   const inputPNGs = [
     `./assets/background/${background}.png`,
     `./assets/body/${body}.png`,
     `./assets/head/${head}.png`,
     `./assets/eyes/${eyes}.png`,
-    // `./assets/hand/${hand}.png`,
     `./assets/mouth/${mouth}.png`,
     `./assets/sticker/${sticker}.png`,
   ];
@@ -75,15 +74,6 @@ const mouthsList = [
   "Mouse Tail",
   "Gold Grillz",
 ];
-// const handsList = [
-//   "Middle Finger",
-//   "Paper Hand",
-//   "Bag",
-//   "Phone",
-//   "Uno Reverse",
-//   "Diamond Hand",
-//   "Gun",
-// ];
 const stickersList = [
   "None",
   "Band-aid",
@@ -106,7 +96,6 @@ let frequency = {};
     const eyes = eyesList[Math.floor(Math.random() * eyesList.length)];
     const head = headsList[Math.floor(Math.random() * headsList.length)];
     const mouth = mouthsList[Math.floor(Math.random() * mouthsList.length)];
-    // const hand = handsList[Math.floor(Math.random() * handsList.length)];
     const sticker =
       stickersList[Math.floor(Math.random() * stickersList.length)];
 

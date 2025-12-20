@@ -19,7 +19,6 @@ export async function generateBro(req, res) {
       ["eyes", req.query.eyes],
       ["head", req.query.head],
       ["mouth", req.query.mouth],
-      // ["hand", req.query.hand],
       ["sticker", req.query.sticker],
     ];
 

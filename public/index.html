@@ -99,19 +99,7 @@
               </div>
             </div>
 
-            <div class="flex flex-wrap mb-4">
-              <!-- <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block mb-2 font-bold" for="eyes">Hand:</label>
-                <select
-                  onchange="generateBro()"
-                  id="hand"
-                  name="hand"
-                  class="block w-full p-2 border border-gray-300 rounded"
-                ></select>
-                <label for="hand-fixed">Fixed?</label>
-                <input id="hand-fixed" type="checkbox" />
-              </div> -->
-            </div>
+            <div class="flex flex-wrap mb-4"></div>
             <div class="m-4">
               <button
                 id="generate-btn"
@@ -133,9 +121,7 @@
           </form>
         </div>
         <div class="max-w-xl">
-          <div id="result" class="mb-4 preview-box">
-            <canvas id="bro-canvas" width="1080" height="1080"></canvas>
-          </div>
+          <div id="result" class="mb-4 preview-box"></div>
           <div>
             <a
               id="download-btn"
@@ -162,7 +148,6 @@
         "body",
         "eyes",
         "head",
-        // "hand",
         "mouth",
         "sticker",
       ];
@@ -223,41 +208,32 @@
 
       const downloadLink = document.getElementById("download-btn");
       downloadLink.addEventListener("click", () => {
-        const canvas = document.getElementById("bro-canvas");
-        if (canvas) {
-          downloadLink.href = canvas.toDataURL("image/png");
+        const img = document.querySelector("#result img");
+        if (img && img.src) {
+          downloadLink.href = img.src;
         }
       });
 
       function generateBro() {
         document.getElementById("download-btn").style.display = "block";
-        const form = document.getElementById("bro-form");
-        const formData = new FormData(form);
+        const formData = new FormData(document.getElementById("bro-form"));
+        const params = new URLSearchParams(formData).toString();
 
-        const order = ["background", "body", "eyes", "head", "mouth", "sticker"];
-        const canvas = document.getElementById("bro-canvas");
-        const ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Adjust the API endpoint URL accordingly
+        const apiUrl = "/api/generate?" + params;
 
-        function loadImage(url) {
-          return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve(img);
-            img.onerror = (e) => reject(e);
-            img.src = url;
-          });
-        }
-
-        const promises = order
-          .map((trait) => {
-            const value = formData.get(trait);
-            if (!value || value === "None") return null;
-            const url = `assets/${trait}/${encodeURIComponent(value)}.png`;
-            return loadImage(url).then((img) => ctx.drawImage(img, 0, 0, canvas.width, canvas.height));
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            // Render PNG data URL
+            document.getElementById(
+              "result"
+            ).innerHTML = `<img src="${data.bro}" alt="bro"/>`;
           })
-          .filter(Boolean);
-
-        Promise.all(promises).catch((err) => console.error("Image load error", err));
+          .catch((error) => {
+            // Handle any errors that occurred during the request
+            console.error(error);
+          });
       }
     </script>
   </body>
