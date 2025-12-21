@@ -7,6 +7,21 @@
     "api/generate.js": {
       "includeFiles": "assets/**/*",
       "maxDuration": 10
+    },
+    "api/image.js": {
+      "includeFiles": "assets/**/*",
+      "maxDuration": 10
+    },
+    "api/share.js": {
+      "includeFiles": "assets/**/*",
+      "maxDuration": 10
     }
   }
+  ,
+  "rewrites": [
+    { "source": "/", "destination": "/public/index.html" },
+    { "source": "/assets/(.*)", "destination": "/public/assets/$1" },
+    { "source": "/share", "destination": "/api/share" },
+    { "source": "/share/(.*)", "destination": "/api/share?id=$1" }
+  ]
 }

@@ -288,6 +288,15 @@
                 download="bro.png"
                 >Download</a
               >
+              <a
+                id="share-x-btn"
+                class="ml-3 bg-black hover:bg-gray-900 text-white font-semibold py-2 px-4 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-800 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="#"
+                aria-label="Share to X"
+                >Share to X</a
+              >
             </div>
           </div>
         </div>
@@ -482,6 +491,7 @@
           document.getElementById(
             "result"
           ).innerHTML = `<img src="${dataUrl}" alt="bro"/>`;
+          updateShareLink(selected);
         } catch (e) {
           console.warn("Canvas generation failed, falling back to server:", e);
           const params = new URLSearchParams(formData).toString();
@@ -492,11 +502,54 @@
               document.getElementById(
                 "result"
               ).innerHTML = `<img src="${data.bro}" alt="bro"/>`;
+              updateShareLink(selected);
             })
             .catch((error) => {
               console.error("Server fallback failed:", error);
             });
         }
+      }
+
+      function buildShareUrl(selected) {
+        // Build compact mixed-radix code from selected indices and encode base62
+        const indices = traitNames.map((t) => {
+          const el = document.getElementById(t);
+          return el ? el.selectedIndex : 0;
+        });
+        const radixes = traitNames.map((t) => {
+          const el = document.getElementById(t);
+          return el ? el.options.length : 1;
+        });
+        let code = 0;
+        let mul = 1;
+        for (let i = 0; i < indices.length; i++) {
+          code += indices[i] * mul;
+          mul *= Math.max(1, radixes[i]);
+        }
+        const alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        function encodeBase62(n) {
+          if (n === 0) return "0";
+          let s = "";
+          while (n > 0) {
+            const r = n % 62;
+            s = alphabet[r] + s;
+            n = Math.floor(n / 62);
+          }
+          return s;
+        }
+        const id = encodeBase62(code);
+        return new URL(window.location.origin + "/share/" + id).toString();
+      }
+
+      function updateShareLink(selected) {
+        const shareBtn = document.getElementById("share-x-btn");
+        const shareUrl = buildShareUrl(selected);
+        const text =
+          "ok, I just cooked this abomination with the $ok PFP maker. Rate my fit.";
+        const intent = new URL("https://twitter.com/intent/tweet");
+        intent.searchParams.set("text", text);
+        intent.searchParams.set("url", shareUrl);
+        shareBtn.href = intent.toString();
       }
     </script>
   </body>
