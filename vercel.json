@@ -22,6 +22,6 @@
     { "source": "/", "destination": "/public/index.html" },
     { "source": "/assets/(.*)", "destination": "/public/assets/$1" },
     { "source": "/share", "destination": "/api/share" },
-    { "source": "/share/(.*)", "destination": "/api/share?id=$1" }
+    { "source": "/share/:id", "destination": "/api/share/:id" }
   ]
 }
