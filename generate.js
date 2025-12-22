@@ -22,9 +22,16 @@ export async function generateBro(req, res) {
       ["sticker", req.query.sticker],
     ];
 
-    const inputPNGs = orderedTraits
-      .map(([trait, value]) => toPath(trait, value))
-      .filter(Boolean);
+  const inputPNGs = orderedTraits
+    .map(([trait, value]) => toPath(trait, value))
+    .filter(Boolean);
+
+  // Optional watermark layer if requested
+  const watermarkEnabled =
+    req.query.watermark === "on" || req.query.watermark === "true";
+  if (watermarkEnabled) {
+    inputPNGs.push(path.join(assetsDir, "ok watermark.png"));
+  }
 
     const layers = inputPNGs.map((p) => ({ input: p }));
 
@@ -37,7 +44,7 @@ export async function generateBro(req, res) {
       },
     });
 
-    const buffer = await base.composite(layers).png().toBuffer();
+  const buffer = await base.composite(layers).png().toBuffer();
     const dataUrl = "data:image/png;base64," + buffer.toString("base64");
 
     res.status(200).json({ bro: dataUrl });

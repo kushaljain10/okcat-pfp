@@ -274,6 +274,18 @@
                 randomize ok
               </button>
             </div>
+            <div class="mt-3">
+              <label class="inline-flex items-center gap-2 text-sm text-gray-700" for="watermark">
+                <input
+                  id="watermark"
+                  name="watermark"
+                  type="checkbox"
+                  class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                  onchange="generateBro()"
+                />
+                <span>$ok watermark</span>
+              </label>
+            </div>
           </form>
         </div>
         <div class="max-w-xl">
@@ -458,6 +470,12 @@
           sources[trait] = src;
           pending.push(loadImage(src).then((img) => ({ trait, img })));
         }
+        // Optional watermark layer
+        if (selected.watermark === true) {
+          const wmSrc = `assets/ok watermark.png`;
+          sources["watermark"] = wmSrc;
+          pending.push(loadImage(wmSrc).then((img) => ({ trait: "watermark", img })));
+        }
         const loaded = await Promise.all(pending);
         const byTrait = Object.fromEntries(loaded.map((o) => [o.trait, o.img]));
 
@@ -466,6 +484,10 @@
           const img = byTrait[trait];
           if (!img) continue;
           ctx.drawImage(img, 0, 0, 1080, 1080);
+        }
+        // Draw watermark last (topmost)
+        if (byTrait["watermark"]) {
+          ctx.drawImage(byTrait["watermark"], 0, 0, 1080, 1080);
         }
         return canvas.toDataURL("image/png");
       }
@@ -476,6 +498,8 @@
         const formData = new FormData(document.getElementById("bro-form"));
         const selected = {};
         traitNames.forEach((t) => (selected[t] = formData.get(t)));
+        // Watermark toggle
+        selected.watermark = !!formData.get("watermark");
 
         try {
           const dataUrl = await composeOnCanvas(selected);
