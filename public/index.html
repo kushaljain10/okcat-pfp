@@ -382,6 +382,14 @@
             .then((response) => response.text())
             .then((csvData) => {
               const options = readCSV(csvData);
+              // Ensure a "None" option exists for optional traits
+              if (
+                ["eyes", "head", "mouth", "sticker"].includes(folderName) &&
+                !options.includes("None")
+              ) {
+                // Add at the end so the first real item remains default
+                options.push("None");
+              }
               populateSelect(folderName, options);
             })
             .catch((error) => {
